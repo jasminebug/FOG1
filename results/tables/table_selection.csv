@@ -1,0 +1,9 @@
+rho,Scheme,first_k rule,Mean (ms),Violation (%)
+0.7,AFS,fixed_id,27.45 ± 0.39,1.51 ± 0.08
+0.7,AFS,random,26.34 ± 0.35,1.37 ± 0.07
+0.7,HZS,fixed_id,27.34 ± 0.37,1.44 ± 0.08
+0.7,HZS,random,26.36 ± 0.35,1.35 ± 0.08
+0.9,AFS,fixed_id,38.81 ± 1.27,3.21 ± 0.28
+0.9,AFS,random,34.44 ± 1.03,2.47 ± 0.19
+0.9,HZS,fixed_id,37.80 ± 1.17,2.88 ± 0.25
+0.9,HZS,random,34.36 ± 1.01,2.42 ± 0.20

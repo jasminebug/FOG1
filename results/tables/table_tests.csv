@@ -1,0 +1,13 @@
+Workload,Comparison,Metric,Mean difference,95% CI of difference,p (Wilcoxon),p (Holm),r (rank-biserial),Significant (0.05)
+"synthetic, rho=0.7",HZS vs CZO,mean_ms,-16.348,0.079,1.86e-09,2.24e-08,-1.0,yes
+"synthetic, rho=0.7",HZS vs CZO,viol_pct,-0.773,0.037,1.86e-09,2.24e-08,-1.0,yes
+"synthetic, rho=0.7",HZS vs HORC,mean_ms,-5.596,0.069,1.86e-09,2.24e-08,-1.0,yes
+"synthetic, rho=0.7",HZS vs HORC,viol_pct,0.023,0.04,2.10e-01,6.29e-01,0.27,no
+"synthetic, rho=0.7",HZS vs AFS,mean_ms,0.022,0.036,2.37e-01,6.29e-01,0.25,no
+"synthetic, rho=0.7",HZS vs AFS,viol_pct,-0.024,0.027,4.83e-02,2.42e-01,-0.42,no
+"Azure trace, rho=0.7",HZS vs CZO,mean_ms,-11.416,1.01,1.86e-09,2.24e-08,-1.0,yes
+"Azure trace, rho=0.7",HZS vs CZO,viol_pct,-0.297,0.559,5.56e-01,6.29e-01,-0.13,no
+"Azure trace, rho=0.7",HZS vs HORC,mean_ms,-10.245,1.479,1.86e-09,2.24e-08,-1.0,yes
+"Azure trace, rho=0.7",HZS vs HORC,viol_pct,-0.7,0.477,1.66e-02,1.16e-01,-0.5,no
+"Azure trace, rho=0.7",HZS vs AFS,mean_ms,-0.207,0.327,4.97e-02,2.42e-01,-0.41,no
+"Azure trace, rho=0.7",HZS vs AFS,viol_pct,-0.148,0.161,2.34e-02,1.40e-01,-0.47,no

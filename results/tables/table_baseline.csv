@@ -1,0 +1,9 @@
+Metric,CZO,HORC,AFS,HZS
+Mean completion (ms),42.71 ± 0.31,31.96 ± 0.35,26.34 ± 0.35,26.36 ± 0.35
+P95 (ms),83.30,73.81,70.81,70.88
+P99 (ms),114.66,105.00,107.05,106.43
+SLA violation (%),2.12 ± 0.07,1.32 ± 0.07,1.37 ± 0.07,1.35 ± 0.08
+Decision latency (ms),20.00,8.08,2.02,2.05
+Msgs per task,2.29,2.30,6.02,9.41
+"Coordinator load, total (msg/s)",3993,4014,0,100
+Busiest controller (msg/s),3993,812,0,100

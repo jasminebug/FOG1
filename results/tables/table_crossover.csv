@@ -1,0 +1,3 @@
+Decentralised scheme,d_dec (ms),ΔW (ms),Δf (ms),ΔS (ms),"Predicted d_c* (ms), Eq. 15",Empirical d_c* (ms),Bootstrap 95% CI (ms)
+AFS,2.02,2.13,-1.41,1.11,3.86,3.85,"[3.77, 3.92]"
+HZS,2.05,2.18,-1.4,1.06,3.88,3.87,"[3.80, 3.94]"

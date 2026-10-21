@@ -1,0 +1,29 @@
+digraph G {
+  graph [rankdir=TB, fontname="Times", fontsize=11, nodesep=0.25, ranksep=0.3, compound=true];
+  node [fontname="Times", fontsize=10, shape=circle, width=0.32, fixedsize=true, style=filled, fillcolor="#e8eef7"];
+  edge [arrowsize=0.5];
+  subgraph cluster_a { label="(a) CZO: star (per-task, every decision)"; style=rounded; color="#1f4e79";
+    C [label="C", shape=doublecircle, fillcolor="#1f4e79", fontcolor=white, width=0.45];
+    a1;a2;a3;a4;a5;a6;
+    C->a1 [dir=both,color="#1f4e79"]; C->a2 [dir=both,color="#1f4e79"]; C->a3 [dir=both,color="#1f4e79"];
+    C->a4 [dir=both,color="#1f4e79"]; C->a5 [dir=both,color="#1f4e79"]; C->a6 [dir=both,color="#1f4e79"];
+    a1 [label=""];a2 [label=""];a3 [label=""];a4 [label=""];a5 [label=""];a6 [label=""];
+  }
+  subgraph cluster_b { label="(b) AFS: mesh (one-hop probes + stigmergy)"; style=rounded; color="#c55a11";
+    node [label="", fillcolor="#fbe5d6"];
+    b1;b2;b3;b4;b5;b6;
+    edge [dir=both, color="#c55a11"];
+    b1->b2; b2->b3; b3->b4; b4->b5; b5->b6; b6->b1; b1->b4; b2->b5;
+  }
+  subgraph cluster_c { label="(c) HZS: mesh per task + slow policy loop (period T_p)"; style=rounded; color="#2e7d32";
+    K [label="K", shape=doublecircle, fillcolor="#2e7d32", fontcolor=white, width=0.45];
+    node [label="", fillcolor="#e2f0d9"];
+    c1;c2;c3;c4;c5;c6;
+    edge [dir=both, color="#2e7d32"];
+    c1->c2; c2->c3; c3->c4; c4->c5; c5->c6; c6->c1; c1->c4; c2->c5;
+    edge [dir=forward, style=dashed, color="#7f7f7f", constraint=false];
+    K->c1; K->c3; K->c5;
+    c6->c3 [label=" partner", fontsize=8, style=dotted, color="#2e7d32"];
+  }
+  a1->b1 [style=invis]; b1->c1 [style=invis];
+}

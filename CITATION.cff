@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software or the derived dataset, please cite the paper below and the Azure Functions trace paper listed in DATASET.md."
+title: "FOG1: centralized orchestration vs. agentic swarm vs. hybrid zero-touch swarm (HZS) for zero-touch fog computing"
+version: 1.1.0
+license: MIT
+repository-code: "https://github.com/jasminebug/FOG1"
+authors:
+  - family-names: "Aswad"
+    given-names: "Bashar"
+    affiliation: "Yogananda School of AI, Computers and Data Sciences, Shoolini University"
+  - family-names: "Kaur"
+    given-names: "Jasmine"
+    affiliation: "Yogananda School of AI, Computers and Data Sciences, Shoolini University"
+  - family-names: "Rana"
+    given-names: "Anurag"
+    affiliation: "Yogananda School of AI, Computers and Data Sciences, Shoolini University"
+preferred-citation:
+  type: article
+  title: "Centralized Orchestration versus Decentralized Agentic Swarms for Zero-Touch Fog Computing: Comparative Analysis and Hybrid Architecture"
+  authors:
+    - family-names: "Aswad"
+      given-names: "Bashar"
+    - family-names: "Kaur"
+      given-names: "Jasmine"
+    - family-names: "Rana"
+      given-names: "Anurag"
+  year: 2026

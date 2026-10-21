@@ -1,0 +1,30 @@
+digraph HZS {
+  graph [rankdir=TB, fontname="Times", fontsize=10, nodesep=0.2, ranksep=0.22];
+  node [fontname="Times", fontsize=9, shape=box, style="rounded,filled", fillcolor="#f2f2f2", width=2.6];
+  edge [fontname="Times", fontsize=8, arrowsize=0.6];
+  subgraph cluster_slow { label="Slow global loop (coordinator, every T_p)"; style=rounded; color="#2e7d32"; fontsize=9;
+    s1 [label="Receive one telemetry batch per node\n(N messages, independent of Λ)"];
+    s2 [label="Update global rate estimates  μ̂_g (EWMA)\nmeasure utilisation û_j"];
+    s3 [label="Residual-capacity score  ψ_j = μ̂_j (1 − û_j)\nselect top-q nodes,  q = max(2, ⌊N/4⌋)"];
+    s4 [label="Round-robin partners  P_i = {top[2i mod q], top[(2i+1) mod q]}\ncapacity leases λ_ij ; broadcast (N messages)"];
+    s1->s2->s3->s4;
+  }
+  subgraph cluster_fast { label="Fast local loop (agent i, every task τ)"; style=rounded; color="#c55a11"; fontsize=9;
+    f0 [label="Task τ arrives at ingress i", fillcolor="#fbe5d6"];
+    f1 [label="C_i = {i} ∪ first_k(N_i) ∪ P_i (partners with a lease token)\nprobe C_i \\ {i}:  2(|C_i| − 1) messages"];
+    f2 [label="Local replies after d_h:\nĈ_ij = max(B_j, t + f_ij) − a_τ + w_τ / μ̂_ij"];
+    f3 [label="min local Ĉ > r·D_τ ?", shape=diamond, width=1.9, height=0.6, fillcolor="#fff2cc"];
+    f4 [label="Wait for partner replies (d_r)\ninclude partners in the argmin"];
+    f5 [label="min Ĉ > D_τ  and  depth < E_max ?", shape=diamond, width=2.2, height=0.6, fillcolor="#fff2cc"];
+    f6 [label="Escalate: probe k_e random two-hop nodes\n(+2k_e messages, +2d_h delay)"];
+    f7 [label="j* = argmin Ĉ_ij / θ_ij^β ;  dispatch τ to j*", fillcolor="#e2f0d9"];
+    f8 [label="On completion: update μ̂_ij*, θ_ij* (rate η)\nappend (w, s) to node telemetry buffer"];
+    f0->f1->f2->f3;
+    f3->f4 [label=" yes"]; f3->f5 [label=" no"]; f4->f5;
+    f5->f6 [label=" yes"]; f6->f5 [label=" re-evaluate"]; f5->f7 [label=" no"]; f7->f8;
+  }
+  s4->f0 [style=dashed, color="#2e7d32", label=" μ̂_g, P_i, leases (every T_p)"];
+  f8->s1 [style=dashed, color="#7f7f7f", label=" batched telemetry", constraint=false];
+  d [label="Coordinator unreachable: agents keep last μ̂_g and P_i; fast loop unchanged", fillcolor="#ffffff", style="rounded,dashed", width=3.2];
+  s4->d [style=invis];
+}

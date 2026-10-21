@@ -1,0 +1,7 @@
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11
+matplotlib>=3.8
+tabulate>=0.9
+pytest>=7.4
+unrar-cffi>=0.2  # optional: only for scripts/prepare_azure_trace.py --rar
